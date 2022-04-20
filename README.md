@@ -1,1 +1,2 @@
-# HentaiClicker
+# HentaiClicker - Хентай Кликер на Джанге
+## Автор - Булат Валиев
