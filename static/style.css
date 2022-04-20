@@ -5,3 +5,37 @@ html {
         -o-background-size: cover;
         background-size: cover;
 }
+
+.upper_txt{
+        position: absolute;
+        top: 32px;
+        left: 52px;
+        font-family: RobotoCustom;
+        color: white;
+        font-size: 96px;
+}
+
+.start_button{
+        position: absolute;
+        bottom: 32px;
+        right: 52px;
+        font-family: RobotoCustom;
+        color: white;
+        font-size: 96px;
+}
+
+.author{
+        position: absolute;
+        bottom: 32px;
+        left: 52px;
+        font-family: RobotoCustom;
+        color: white;
+        font-size: 32px;
+}
+
+@font-face {
+        font-family: "RobotoCustom";
+        src: url("Roboto-Thin.ttf");
+        font-weight: normal;
+        font-style:normal;
+}
