@@ -22,6 +22,16 @@ html {
         font-family: RobotoCustom;
         color: white;
         font-size: 96px;
+        text-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+}
+
+.start_button:hover
+{
+        -webkit-animation: pusate 1s infinite alternate;
+        -moz-animation: pusate 1s infinite alternate;
+        -animation: pusate 1s infinite alternate;
+        text-shadow: 0 0 20px #ccc;
 }
 
 .author{
@@ -38,4 +48,17 @@ html {
         src: url("Roboto-Thin.ttf");
         font-weight: normal;
         font-style:normal;
+}
+
+@-webkit-keyframes pulsate {
+    from { text-shadow: 0 0 10px #333; }
+    to { text-shadow: 0 0 10px #ffffff; }
+}
+@-moz-keyframes pulsate {
+    from { text-shadow: 0 0 10px #333; }
+    to { text-shadow: 0 0 20px #ffffff; }
+}
+@keyframes pulsate {
+    from { text-shadow: 0 0 10px #333; }
+    to { text-shadow: 0 0 40px #ffffff; }
 }
