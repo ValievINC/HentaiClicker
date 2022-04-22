@@ -6,7 +6,7 @@ html {
         background-size: cover;
 }
 
-.upper_txt{
+.upper-txt {
         position: absolute;
         top: 32px;
         left: 52px;
@@ -15,7 +15,12 @@ html {
         font-size: 96px;
 }
 
-.start_button{
+.href-decoration {
+        text-decoration: none;
+        color:white;
+}
+
+.start-button {
         position: absolute;
         bottom: 32px;
         right: 52px;
@@ -26,15 +31,14 @@ html {
         cursor: pointer;
 }
 
-.start_button:hover
-{
+.start-button:hover {
         -webkit-animation: pusate 1s infinite alternate;
         -moz-animation: pusate 1s infinite alternate;
         -animation: pusate 1s infinite alternate;
         text-shadow: 0 0 20px #ccc;
 }
 
-.author{
+.author {
         position: absolute;
         bottom: 32px;
         left: 52px;
