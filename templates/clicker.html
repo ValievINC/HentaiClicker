@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +7,20 @@
     <title>Hentai Clicker</title>
 </head>
 <body>
-    <p>Clear Page</p>
-    <p>It's absolutely clear</p>
-    <p>I swear</p>
-    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    <p>Score: <span id="score">0</span></p>
+    <img src="{% static 'clicker/hentai.png' %}" onclick="addToScore(1)">
+
+    <script>
+        let score = 0;
+        let clickCost = 20;
+        let clicks = 0;
+
+        function addToScore(amount) {
+            score += amount;
+            document.getElementById("score").innerHTML = score;
+        }
+    </script>
+
+    <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
 </body>
 </html>
