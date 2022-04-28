@@ -20,27 +20,20 @@ function buyClick() {
 function addToScore(amount) {
     score += amount;
     document.getElementById("score").innerHTML = score;
-}
-
-setInterval(function () {
-    score += clicks;
-    document.getElementById("score").innerHTML = score;
-}, 1000)
-
-image.onclick = function (){
-    if((score < 9) && levelReached < 1){
+    if((score < 10) && levelReached < 1){
         image.src = images[0]
     }
-    else if(score < 19 && levelReached < 2){
+    else if(score < 20 && levelReached < 2){
         image.src = images[1]
         levelReached = 1
     }
-    else if(score < 29 && levelReached < 3){
+    else if(score < 30 && levelReached < 3){
         image.src = images[2]
         levelReached = 2
     }
-    else if(score < 39 && levelReached < 4){
+    else if(score >= 30){
         image.src = images[3]
         levelReached = 3
     }
 }
+
