@@ -8,10 +8,16 @@
     <title>Hentai Clicker</title>
 </head>
 <body>
-    <p class="score">Score: <span id="score">0</span></p>
-    <img src="{% static 'clicker/hentai.png' %}" onclick="addToScore(1)">
-    <p><button  class="buy-button" onclick="buyClick()">BetterClick [<span id="betterClickCost">20</span>] -- <span id="clicks">0</span></button></p>
-    <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+    <div style="width: 100%;overflow:auto;">
+        <div class="actual-gameplay" onclick="addToScore(1)">
+            <p class="score">Hits: <span id="score">0</span></p>
+            <img class="girl" id="girl" src="" onclick="showImage()"/>
+        </div>
+        <div class="bar">
+            <p><button  class="buy-button" onclick="buyClick()">BetterClick [<span id="betterClickCost">20</span>] -- <span id="clicks">0</span></button></p>
+            <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+        </div>
+    </div>
     <script src="{% static 'clicker/hentaiJS.js' %}"></script>
 </body>
 </html>

@@ -1,7 +1,57 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: white;
+}
+p{
+    margin-top: 0;
+}
+.actual-gameplay {
+    float: left;
+    background-color: #26232A;
+    height: 100vh;
+    width: 77%;
+    overflow: hidden;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.girl{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.bar {
+    float: right;
+    background-color: #1D1B20;
+    height: 100vh;
+    width: 23%;
+    overflow:hidden;
+    box-shadow: inset 4px 0px 0px 0px white;
+}
+
 .score {
-    font-size: 50px;
+    position: absolute;
+    top: 32px;
+    left: 52px;
+    font-family: RobotoCustom;
+    color: white;
+    font-size: 64px;
 }
 
 .buy-button {
-    font-size: 50px;
+    font-size: 20px;
+}
+
+@font-face {
+        font-family: "RobotoCustom";
+        src: url("../Roboto-Thin.ttf");
+        font-weight: normal;
+        font-style:normal;
 }
