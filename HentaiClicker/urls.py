@@ -4,6 +4,8 @@ from Clicker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register/', views.register, name='register'),
+    path('login/', views.user_login, name='login'),
     path('', views.index, name='welcome'),
     path('hentai_clicker', views.clicker, name='hentai_clicker')
 ]
