@@ -10,7 +10,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('login')
 
         return render(request, 'register.html', {'form': form})
 
@@ -25,7 +25,7 @@ def user_login(request):
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user:
             login(request, user)
-            return redirect('index')
+            return redirect('welcome')
 
         return render(request, 'login.html', {'form': form, 'invalid': True})
 
