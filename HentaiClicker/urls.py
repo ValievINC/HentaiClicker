@@ -1,22 +1,23 @@
 from django.contrib import admin
 from django.urls import path
 from Clicker import views
+from Clicker.views import Register, Login
 
 users_list = views.UserViewSet.as_view({
-    'get': 'list', # получить список всех заметок
-    'post': 'create', # создать заметку
+    'get': 'list',
+    'post': 'create',
 })
 users_detail = views.UserViewSet.as_view({
-    'get': 'retrieve', # получить данные об одной заметке
-    'put': 'update', # обновить все поля заметки
-    'patch': 'partial_update', # обновить несколько полей заметки
-    'delete': 'destroy' # ремувнуть, уничтожить, удалить, разрушить, зарезать заметку
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
 })
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/', views.register, name='register'),
-    path('login/', views.user_login, name='login'),
+    path('register/', Register.as_view(), name='register'),
+    path('login/', Login.as_view(), name='login'),
     path('', views.index, name='welcome'),
     path('hentai_clicker', views.clicker, name='hentai_clicker'),
     path('api/users_viewset/', users_list, name='users_viewset'),
