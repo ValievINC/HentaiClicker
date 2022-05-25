@@ -7,5 +7,6 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.user_login, name='login'),
     path('', views.index, name='welcome'),
-    path('hentai_clicker', views.clicker, name='hentai_clicker')
+    path('hentai_clicker', views.clicker, name='hentai_clicker'),
+    path('user_data', views.UserView.as_view(), name='user_data'),
 ]

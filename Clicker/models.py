@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-class User(models.Model):
-    username = models.CharField(max_length=255)
-    score = models.IntegerField()
-    auto_clickers = models.IntegerField()
+class UserData(models.Model):
+    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
+    click_power = models.IntegerField(default=1)
