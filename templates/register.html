@@ -6,7 +6,7 @@
 <body>
     <h1>Регистрация</h1>
     {% if form.errors %}
-        <p>{{form.errors}}</p>
+        <p>{{ form.errors }}</p>
     {% endif %}
     <form action="{% url 'register' %}" method='POST'>
         {% csrf_token %}

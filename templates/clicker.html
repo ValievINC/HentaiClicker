@@ -9,12 +9,12 @@
 </head>
 <body>
     <div style="width: 100%;overflow:auto;">
-        <div class="actual-gameplay" id="actual-gameplay" onclick="addToScore(1)">
-            <p class="score">Hits: <span id="score">0</span></p>
+        <div class="actual-gameplay" id="actual-gameplay" onclick="call_click()">
+            <p class="score">Hits: <span id="score">{{user.score}}</span></p>
             <img class="girl" id="girl" src=""/>
         </div>
         <div class="bar">
-            <p class="HPS" id="HPC">Hits Per Second:</p>
+            <p class="HPC" id="HPC">Hits Per Click:</p>
         </div>
     </div>
     <script src="{% static 'clicker/hentaiJS.js' %}"></script>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .forms import UserForm
@@ -42,9 +43,19 @@ class Login(APIView):
 
 @login_required
 def index(request):
-    core = UserData.objects.get(user=request.user) # Получаем объект игры текущего пользователя
-    return render(request, 'welcome.html', {'core': core})
+    user = UserData.objects.get(user=request.user)
+    return render(request, 'welcome.html', {'user': user})
 
 
 def clicker(request):
     return render(request, 'clicker.html', {})
+
+
+@api_view(['GET'])
+@login_required
+def call_click(request):
+    user = UserData.objects.get(user=request.user)
+    user.click()
+    user.save()
+    return Response({'user': UserSerializer(user).data})
+
