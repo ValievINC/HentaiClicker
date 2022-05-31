@@ -19,6 +19,7 @@ class Register(APIView):
     def get(self, request):
         form = UserForm()
         return render(request, 'register.html', {'form': form})
+
     def post(self, request):
         form = UserForm(request.POST)
         if form.is_valid():
@@ -32,8 +33,10 @@ class Register(APIView):
 
 class Login(APIView):
     form = UserForm()
+
     def get(self, request):
         return render(request, 'login.html', {'form': self.form})
+
     def post(self, request):
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user:
@@ -68,6 +71,14 @@ def onload_image(request):
 def call_click(request):
     user = UserData.objects.get(user=request.user)
     user.click()
+    user.save()
+    return Response({'user': UserSerializer(user).data})
+
+@api_view(['GET'])
+@login_required
+def update_power(request):
+    user = UserData.objects.get(user=request.user)
+    user.click_power += 1
     user.save()
     return Response({'user': UserSerializer(user).data})
 

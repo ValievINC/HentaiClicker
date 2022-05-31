@@ -52,3 +52,17 @@ function change_image(score) {
         levelReached = 3
     }
 }
+
+
+function update_power(){
+    fetch('/update_power', {
+        method: 'GET'
+    }).then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        return Promise.reject(response)
+    }).then(data => {
+
+    }).catch(error => console.log(error))
+}
