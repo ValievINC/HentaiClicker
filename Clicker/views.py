@@ -58,6 +58,13 @@ def clicker(request):
 
 @api_view(['GET'])
 @login_required
+def onload_image(request):
+    user = UserData.objects.get(user=request.user)
+    return Response({'user': UserSerializer(user).data})
+
+
+@api_view(['GET'])
+@login_required
 def call_click(request):
     user = UserData.objects.get(user=request.user)
     user.click()

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href='{% static 'clicker/hentai_style.css' %}'>
     <title>Hentai Clicker</title>
 </head>
-<body>
+<body onload="onload_image()">
     <div style="width: 100%;overflow:auto;">
         <div class="actual-gameplay" id="actual-gameplay" onclick="call_click()">
             <p class="score">Hits: <span id="score">{{ score }}</span></p>

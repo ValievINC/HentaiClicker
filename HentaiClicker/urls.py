@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/users_viewset/', users_list, name='users_viewset'),
     path('api/users_viewset/<int:pk>/', users_detail, name='users_viewset'),
     path('call_click/', views.call_click),
+    path('onload_image/', views.onload_image),
 ]
