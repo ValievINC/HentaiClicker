@@ -35,6 +35,20 @@ function call_click() {
 }
 
 
+function update_power(i){
+    fetch(`/update_power${i}`, {
+        method: 'GET'
+    }).then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        return Promise.reject(response)
+    }).then(data => {
+        document.getElementById('HPC').innerText = data.user.click_power
+    }).catch(error => console.log(error))
+}
+
+
 function change_image(score) {
     if((score < 10) && levelReached < 1){
         image.src = images[0]
@@ -51,18 +65,4 @@ function change_image(score) {
         image.src = images[3]
         levelReached = 3
     }
-}
-
-
-function update_power(){
-    fetch('/update_power', {
-        method: 'GET'
-    }).then(response => {
-        if (response.ok) {
-            return response.json()
-        }
-        return Promise.reject(response)
-    }).then(data => {
-
-    }).catch(error => console.log(error))
 }

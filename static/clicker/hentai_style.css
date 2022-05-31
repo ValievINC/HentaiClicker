@@ -52,7 +52,7 @@ p{
     box-shadow: inset 4px 0px 0px 0px white;
 }
 
-.HPC {
+.HPC1 {
     position: absolute;
     top: 32px;
     justify-content: center;
@@ -60,6 +60,16 @@ p{
     color: white;
     font-size: 64px;
 }
+
+.HPC2 {
+    position: absolute;
+    top: 96px;
+    justify-content: center;
+    font-family: RobotoCustom;
+    color: white;
+    font-size: 64px;
+}
+
 @font-face {
         font-family: "RobotoCustom";
         src: url("../Roboto-Thin.ttf");

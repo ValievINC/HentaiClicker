@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from .forms import UserForm
 from .serializers import UserSerializer
 from .models import UserData
-from rest_framework import viewsets
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -44,6 +44,7 @@ class Login(APIView):
             return redirect('welcome')
         return render(request, 'login.html', {'form': self.form, 'invalid': True})
 
+
 @login_required
 def index(request):
     user = UserData.objects.get(user=request.user)
@@ -53,8 +54,10 @@ def index(request):
 def clicker(request):
     user = UserData.objects.get(user=request.user)
     userScore = user.score
+    userHPC = user.click_power
     context = {
-        'score': userScore
+        'score': userScore,
+        'userHPC': userHPC
     }
     return render(request, 'clicker.html', context)
 
@@ -74,11 +77,48 @@ def call_click(request):
     user.save()
     return Response({'user': UserSerializer(user).data})
 
+
 @api_view(['GET'])
 @login_required
-def update_power(request):
+def update_power1(request):
     user = UserData.objects.get(user=request.user)
+    user.tentacle1_count += 1
     user.click_power += 1
     user.save()
     return Response({'user': UserSerializer(user).data})
 
+@api_view(['GET'])
+@login_required
+def update_power2(request):
+    user = UserData.objects.get(user=request.user)
+    user.tentacle2_count += 1
+    user.click_power += 5
+    user.save()
+    return Response({'user': UserSerializer(user).data})
+
+@api_view(['GET'])
+@login_required
+def update_power3(request):
+    user = UserData.objects.get(user=request.user)
+    user.tentacle3_count += 1
+    user.click_power += 25
+    user.save()
+    return Response({'user': UserSerializer(user).data})
+
+@api_view(['GET'])
+@login_required
+def update_power4(request):
+    user = UserData.objects.get(user=request.user)
+    user.tentacle4_count += 1
+    user.click_power += 125
+    user.save()
+    return Response({'user': UserSerializer(user).data})
+
+@api_view(['GET'])
+@login_required
+def update_power5(request):
+    user = UserData.objects.get(user=request.user)
+    user.tentacle5_count += 1
+    user.click_power += 625
+    user.save()
+    return Response({'user': UserSerializer(user).data})
