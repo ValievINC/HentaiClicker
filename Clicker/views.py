@@ -48,7 +48,12 @@ def index(request):
 
 
 def clicker(request):
-    return render(request, 'clicker.html', {})
+    user = UserData.objects.get(user=request.user)
+    userScore = user.score
+    context = {
+        'score': userScore
+    }
+    return render(request, 'clicker.html', context)
 
 
 @api_view(['GET'])
