@@ -11,4 +11,4 @@ db.sqlite3
 __pychache__
 .DS_Store
 myvenv
-venv
+venv/
