@@ -17,11 +17,26 @@
             <p class="HPC1">Hits Per Click:</p>
             <br>
             <p class="HPC2" id="HPC">{{ userHPC }}</p>
-            <button class="tentacle1" id="tentacle1" onclick="update_power(1)">button1</button>
-            <button class="tentacle2" id="tentacle2" onclick="update_power(2)">button2</button>
-            <button class="tentacle3" id="tentacle3" onclick="update_power(3)">button3</button>
-            <button class="tentacle4" id="tentacle4" onclick="update_power(4)">button4</button>
-            <button class="tentacle5" id="tentacle5" onclick="update_power(5)">button5</button>
+                <button class="tentacle1" id="tentacle1" onclick="update_power(1)">
+                    button1
+                    <br>Counts: <span id="tentacle1_count">{{ tentacle1_count }}</span></br>
+                </button>
+                <button class="tentacle2" id="tentacle2" onclick="update_power(2)">
+                    button2
+                    <br>Counts: <span id="tentacle2_count">{{ tentacle2_count }}</span></br>
+                </button>
+                <button class="tentacle3" id="tentacle3" onclick="update_power(3)">
+                    button3
+                    <br>Counts: <span id="tentacle3_count">{{ tentacle3_count }}</span></br>
+                </button>
+                <button class="tentacle4" id="tentacle4" onclick="update_power(4)">
+                    button4
+                    <br>Counts: <span id="tentacle4_count">{{ tentacle4_count }}</span></br>
+                </button>
+                <button class="tentacle5" id="tentacle5" onclick="update_power(5)">
+                    button5
+                    <br>Counts: <span id="tentacle5_count">{{ tentacle5_count }}</span></br>
+                </button>
         </div>
     </div>
     <script src="{% static 'clicker/hentaiJS.js' %}"></script>

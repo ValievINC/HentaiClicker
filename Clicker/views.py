@@ -51,17 +51,6 @@ def index(request):
     return render(request, 'welcome.html', {'user': user})
 
 
-def clicker(request):
-    user = UserData.objects.get(user=request.user)
-    userScore = user.score
-    userHPC = user.click_power
-    context = {
-        'score': userScore,
-        'userHPC': userHPC
-    }
-    return render(request, 'clicker.html', context)
-
-
 @api_view(['GET'])
 @login_required
 def onload_image(request):
@@ -122,3 +111,23 @@ def update_power5(request):
     user.click_power += 625
     user.save()
     return Response({'user': UserSerializer(user).data})
+
+def clicker(request):
+    user = UserData.objects.get(user=request.user)
+    userScore = user.score
+    userHPC = user.click_power
+    tentacle1 = user.tentacle1_count
+    tentacle2 = user.tentacle2_count
+    tentacle3 = user.tentacle3_count
+    tentacle4 = user.tentacle4_count
+    tentacle5 = user.tentacle5_count
+    context = {
+        'score': userScore,
+        'userHPC': userHPC,
+        'tentacle1_count': tentacle1,
+        'tentacle2_count': tentacle2,
+        'tentacle3_count': tentacle3,
+        'tentacle4_count': tentacle4,
+        'tentacle5_count': tentacle5
+    }
+    return render(request, 'clicker.html', context)

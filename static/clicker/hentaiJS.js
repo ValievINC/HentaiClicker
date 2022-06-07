@@ -44,6 +44,11 @@ function update_power(i){
         }
         return Promise.reject(response)
     }).then(data => {
+        document.getElementById('tentacle1_count').innerText = data.user.tentacle1_count
+        document.getElementById('tentacle2_count').innerText = data.user.tentacle2_count
+        document.getElementById('tentacle3_count').innerText = data.user.tentacle3_count
+        document.getElementById('tentacle4_count').innerText = data.user.tentacle4_count
+        document.getElementById('tentacle5_count').innerText = data.user.tentacle5_count
         document.getElementById('HPC').innerText = data.user.click_power
     }).catch(error => console.log(error))
 }
