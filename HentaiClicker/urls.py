@@ -18,12 +18,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', Register.as_view(), name='register'),
     path('login/', Login.as_view(), name='login'),
-    path('', views.index, name='welcome'),
+    path('welcome/', views.index, name='welcome'),
     path('hentai_clicker', views.clicker, name='hentai_clicker'),
     path('api/users_viewset/', users_list, name='users_viewset'),
     path('api/users_viewset/<int:pk>/', users_detail, name='users_viewset'),
     path('call_click/', views.call_click),
     path('onload_image/', views.onload_image),
+
+    # Абдаб даб автор не использует pk
     path('update_power1', views.update_power1),
     path('update_power2', views.update_power2),
     path('update_power3', views.update_power3),

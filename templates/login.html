@@ -1,19 +1,25 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Авторизация в лучшем кликере</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='{% static 'login/login_style.css' %}'>
+    <title>Авторизация в Hentai Clicker</title>
 </head>
 <body>
-    <h1>Авторизация</h1>
-    <form action="{% url 'login' %}" method='POST'>
+<div class="rectangle">
+    <p class="login">Авторизация</p>
+    <form class="forms" action="{% url 'login' %}" method='POST'>
         {% csrf_token %}
         {{ form.username }}
         {{ form.password }}
         {% if invalid %}
             <p>Введи нормальные данные</p>
         {% endif %}
-        <input type="submit">
+        <input type="submit" class="button">
     </form>
-    <a href="{% url 'register' %}">Не зарегистрирован?</a>
+    <p class="nonregistered"><a href="{% url 'register' %}">Не зарегистрирован?</a></p>
+</div>
 </body>
 </html>
