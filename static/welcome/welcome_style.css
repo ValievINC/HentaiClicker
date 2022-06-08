@@ -15,6 +15,24 @@ html {
         font-size: 64px;
 }
 
+.logout-button {
+        position: absolute;
+        top: 32px;
+        right: 52px;
+        font-family: RobotoCustom;
+        color: white;
+        font-size: 64px;
+        text-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+}
+
+.logout-button:hover {
+        -webkit-animation: pusate 1s infinite alternate;
+        -moz-animation: pusate 1s infinite alternate;
+        -animation: pusate 1s infinite alternate;
+        text-shadow: 0 0 20px #ccc;
+}
+
 .href-decoration {
         text-decoration: none;
         color:white;

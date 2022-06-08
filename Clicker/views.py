@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -46,6 +46,13 @@ class Login(APIView):
             login(request, user)
             return redirect('welcome')
         return render(request, 'login.html', {'form': self.form, 'invalid': True})
+
+
+# Непосредственно логика логаутизации
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('login')
 
 
 # Непосредственно логика клика
