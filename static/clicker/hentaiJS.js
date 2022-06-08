@@ -1,6 +1,6 @@
 // Тут мы даем хентай-девочке инфу о том, в что ей нужно одеться
 let image = document.getElementById('girl')
-let images = ["static/clicker/0points.png", "static/clicker/250kpoints.png", "static/clicker/500kpoints.png", "static/clicker/1kkpoints.png"]
+let images = ["static/clicker/girls/0points.png", "static/clicker/girls/250kpoints.png", "static/clicker/girls/500kpoints.png", "static/clicker/girls/1kkpoints.png"]
 image.src = images[0]
 
 

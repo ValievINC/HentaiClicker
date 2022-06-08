@@ -49,7 +49,7 @@ p{
     height: 100vh;
     width: 27%;
     overflow:hidden;
-    box-shadow: inset 4px 0px 0px 0px white;
+    box-shadow: inset 4px 0px 0px 0px dimgray;
 }
 
 .HPC1 {
@@ -70,9 +70,80 @@ p{
     font-size: 64px;
 }
 
+.tentacle-shop {
+    position: absolute;
+    top: 192px;
+    justify-content: center;
+    font-family: RobotoCustom;
+    color: white;
+    font-size: 48px;
+}
+
+.tentacle {
+    margin-top: 250px;
+}
+
+.tentacle1 {
+    font-family: RobotoCustom;
+    color: white;
+    height: 13vh;
+    width: 25vw;
+    float: left;
+    position: relative;
+    left: 51%;
+    transform: translate(-50%, 0);
+    background-color: #211F23;
+    border: 1px dashed black;
+    overflow: hidden;
+}
+
+.tentacle1:hover {
+    -webkit-animation: pusate 1s infinite alternate;
+    -moz-animation: pusate 1s infinite alternate;
+    -animation: pusate 1s infinite alternate;
+    text-shadow: 0 0 30px #ccc;
+}
+
+.tentIMG {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width: auto;
+    max-height: 100%;
+}
+
+.tentacle-name {
+    font-size: 30px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 5px;
+}
+
+.tentacle-count {
+    position: absolute;
+    left: 10%;
+    font-size: 30px;
+    bottom: -30px;
+}
+
+.tentacle-price {
+    font-size: 24px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: -20px;
+}
+
 @font-face {
-        font-family: "RobotoCustom";
-        src: url("../Roboto-Thin.ttf");
-        font-weight: normal;
-        font-style:normal;
+    font-family: "RobotoCustom";
+    src: url("../Roboto-Thin.ttf");
+    font-weight: normal;
+    font-style:normal;
 }
