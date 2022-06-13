@@ -15,9 +15,9 @@ function onload_image(){
         }
         return Promise.reject(response)
     }).then(data => {
-        // Проверяем, нужно ли обновить одежду хентай-девочки
+        // Проверяем, нужно ли обновить одежду хентай-девочки и стадию
         let userSavedLevel = data.user.level
-        change_image(userSavedLevel)
+        change_image_and_stage(userSavedLevel)
     }).catch(error => console.log(error))
 }
 
@@ -32,9 +32,9 @@ function call_click() {
         }
         return Promise.reject(response)
     }).then(data => {
-        // Проверям, нужно ли обновить одежду хентай-девочки
+        // Проверям, нужно ли обновить одежду хентай-девочки и стадию
         let level = data.user.level
-        change_image(level)
+        change_image_and_stage(level)
 
         // Тут мы обновляем значение Счёта(Hits) вместе с кликом
         document.getElementById('score').innerText = data.user.score
@@ -72,18 +72,22 @@ function update_power(i){
     }).catch(error => console.log(error))
 }
 
-// Функция, которая присваивает уровню пользователя соответствующую картинку
-function change_image(level) {
+// Функция, которая присваивает уровню пользователя соответствующую картинку и стадию
+function change_image_and_stage(level) {
     if(level < 1){
         image.src = images[0]
+        document.getElementById('stage').innerText = "Stage 1 - 50000 HITS"
     }
     else if(level < 2){
         image.src = images[1]
+        document.getElementById('stage').innerText = "Stage 2 - 250000 HITS"
     }
     else if(level < 3){
         image.src = images[2]
+        document.getElementById('stage').innerText = "Stage 3 - 6250000 HITS"
     }
     else if(level === 3){
         image.src = images[3]
+        document.getElementById('stage').innerText = "GG!"
     }
 }

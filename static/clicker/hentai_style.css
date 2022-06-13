@@ -29,6 +29,7 @@ p{
     justify-content: center;
     -webkit-filter: drop-shadow(0px 0px 100px black);
     filter: drop-shadow(0px 0px 100px black);
+    pointer-events: none;
 }
 
 .score {
@@ -38,6 +39,15 @@ p{
     font-family: RobotoCustom;
     color: white;
     font-size: 64px;
+}
+
+.stage {
+    position: absolute;
+    bottom: 32px;
+    left: 52px;
+    font-family: RobotoCustom;
+    color: white;
+    font-size: 32px;
 }
 
 .bar {
