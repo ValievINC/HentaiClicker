@@ -93,7 +93,7 @@ p{
     margin-top: 250px;
 }
 
-.tentacle1 {
+.tentacle-design {
     font-family: RobotoCustom;
     color: white;
     height: 13vh;
@@ -107,7 +107,7 @@ p{
     overflow: hidden;
 }
 
-.tentacle1:hover {
+.tentacle-design:hover {
     -webkit-animation: pusate 1s infinite alternate;
     -moz-animation: pusate 1s infinite alternate;
     -animation: pusate 1s infinite alternate;

@@ -1,35 +1,39 @@
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import User
 
 
-class UserData(models.Model):
-    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
+class Results(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
     click_power = models.IntegerField(default=1)
     level = models.IntegerField(default=0)
 
-    # Тентакли
-    tentacle1_count = models.IntegerField(default=0)
-    tentacle2_count = models.IntegerField(default=0)
-    tentacle3_count = models.IntegerField(default=0)
-    tentacle4_count = models.IntegerField(default=0)
-    tentacle5_count = models.IntegerField(default=0)
+    class Meta:
+        verbose_name = 'Результат'
+        verbose_name_plural = 'Результаты'
 
-    # Стоимость Тентаклей
-    tentacle1_cost = models.IntegerField(default=10)
-    tentacle2_cost = models.IntegerField(default=100)
-    tentacle3_cost = models.IntegerField(default=1000)
-    tentacle4_cost = models.IntegerField(default=10000)
-    tentacle5_cost = models.IntegerField(default=100000)
+    def __str__(self):
+        return f'Результаты {self.user.username}'
 
-    # Собственно логика клика
     def click(self):
         self.score += self.click_power
         return self
 
-    # Выдача уровня в зависимости от того, какого счёта добился игрок
     def check_level(self):
         check_points = [50000, 250000, 6250000]
         for i in range(1, 4):
             if self.score >= check_points[i-1] and self.level < i:
                 self.level = i
+
+
+class Tentacles(models.Model):
+    name = models.CharField(max_length=100)
+    cost = models.IntegerField(default=0)
+    power = models.IntegerField(default=1)
+    image = models.ImageField(upload_to='tentacles_images', null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = verbose_name = 'Тентакли'
+
+    def __str__(self):
+        return f'{self.name}'

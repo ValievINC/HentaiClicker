@@ -9,13 +9,13 @@
 </head>
 <body>
     <div class="upper-txt">
-        Welcome <br>to my <br>Hentai Clicker
+        Welcome <br>to my <br>Hentai Clicker, <br> {{ user.get_username }}
     </div>
     <div class="logout-button">
-        <a href="/login" class="href-decoration">Logout</a>
+        <a href="{% url 'users:logout' %}" class="href-decoration">Logout</a>
     </div>
     <div class="start-button">
-        <a href="/hentai_clicker" class="href-decoration">Start</a>
+        <a href="{% url 'clicker:play' %}" class="href-decoration">Start</a>
     </div>
     <div class="author">
         Author - Bulat Valiev

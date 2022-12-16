@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'Clicker.apps.ClickerConfig'
+
+    'Clicker',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -128,4 +130,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL='/login/'
+AUTH_USER_MODEL = "users.User"
+LOGIN_URL = '/user/login/'
+LOGIN_REDIRECT_URL = '/user/welcome/'
+LOGOUT_REDIRECT_URL = LOGIN_URL
+

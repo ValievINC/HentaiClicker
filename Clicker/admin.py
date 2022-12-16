@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import UserData
+from Clicker.models import Results, Tentacles
 
-admin.site.register(UserData)
+admin.site.register(Results)
+admin.site.register(Tentacles)
