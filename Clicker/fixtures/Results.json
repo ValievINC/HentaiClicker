@@ -1,0 +1,1 @@
+[{"model": "Clicker.results", "pk": 1, "fields": {"user": 1, "score": 0, "click_power": 1, "level": 0, "tentacle_field": 1}}, {"model": "Clicker.results", "pk": 2, "fields": {"user": 2, "score": 0, "click_power": 1, "level": 0, "tentacle_field": 1}}]

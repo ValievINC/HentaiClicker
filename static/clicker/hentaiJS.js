@@ -24,7 +24,7 @@ function onload_image(){
 
 // Функция, которая кликает
 function call_click() {
-    fetch('/call_click', {
+    fetch('call_click', {
         method: 'GET'
     }).then(response => {
         if (response.ok) {

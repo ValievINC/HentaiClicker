@@ -1,20 +1,45 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from rest_framework.decorators import api_view
+from django.http import HttpResponse, HttpResponseRedirect
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework import viewsets
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 from Clicker.models import Tentacles, Results
 
 
-class ClickerPlayView(ListView):
-    model = Tentacles
-    template_name = 'clicker.html'
+def clicker_view(request):
+    context = {
+        'results': Results.objects.filter(user=request.user),
+        'tentacles': Tentacles.objects.all()
+    }
+    return render(request, 'clicker.html', context)
 
-    def get_context_data(self, **kwargs):
-        context = super(ClickerPlayView, self).get_context_data()
-        context['tentacles'] = Tentacles.objects.all()
-        return context
+
+def onload_image(request):
+    result = Results.objects.get(user=request.user)
+    return HttpResponseRedirect(result)
+
+
+def call_click(request):
+    result = Results.objects.get(user=request.user)
+    result.click()
+    result.check_level()
+    result.save()
+    return HttpResponseRedirect(request.path_info)
+
+# class ClickerPlayView(ListView):
+#     model = Results
+#     template_name = 'clicker.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(ClickerPlayView, self).get_context_data()
+#         context['results_list'] = Results.objects.filter(user=self.request.user)
+#         return context
 
 # @api_view(['GET'])
 # @login_required
@@ -119,38 +144,3 @@ class ClickerPlayView(ListView):
 #
 #
 # # Эта параша(иначе её не назвать: страшная и воняет) отвечает за вывод циферок на страничку
-# def clicker(request):
-#     user = UserData.objects.get(user=request.user)
-#     userScore = user.score  # Счет юзера
-#     userHPC = user.click_power  # Сколько юзер делает хитов за клик
-#
-#     # Кол-во тентаклин
-#     tentacle1_count = user.tentacle1_count
-#     tentacle2_count = user.tentacle2_count
-#     tentacle3_count = user.tentacle3_count
-#     tentacle4_count = user.tentacle4_count
-#     tentacle5_count = user.tentacle5_count
-#
-#     # Стоимость тентаклин
-#     tentacle1_cost = user.tentacle1_cost
-#     tentacle2_cost = user.tentacle2_cost
-#     tentacle3_cost = user.tentacle3_cost
-#     tentacle4_cost = user.tentacle4_cost
-#     tentacle5_cost = user.tentacle5_cost
-#
-#     # Делаем контекст, чтобы выглядело покрасивше(а то в ретюрне будет жопа)
-#     context = {
-#         'score': userScore,
-#         'userHPC': userHPC,
-#         'tentacle1_count': tentacle1_count,
-#         'tentacle2_count': tentacle2_count,
-#         'tentacle3_count': tentacle3_count,
-#         'tentacle4_count': tentacle4_count,
-#         'tentacle5_count': tentacle5_count,
-#         'tentacle1_cost': tentacle1_cost,
-#         'tentacle2_cost': tentacle2_cost,
-#         'tentacle3_cost': tentacle3_cost,
-#         'tentacle4_cost': tentacle4_cost,
-#         'tentacle5_cost': tentacle5_cost,
-#     }
-#     return render(request, 'clicker.html', context)

@@ -9,22 +9,22 @@
 </head>
 <body onload="onload_image()">
     <div style="width: 100%;overflow:auto;">
-        <div class="actual-gameplay" id="actual-gameplay" onclick="call_click()">
-            <p class="score">Hits: <span id="score"></span></p>
-            <img class="girl" id="girl" src=""/>
+        <div class="actual-gameplay" id="actual-gameplay" onclick="location.href='{% url 'clicker:call_click' %}'">
+            <p class="score">Hits: <span id="score"> {{ results.get.score }}</span></p>
+            <img class="girl" id="girl"/>
             <p class="stage" id="stage"></p>
         </div>
         <div class="bar">
             <p class="HPC1">Hits Per Click:</p>
             <br>
-            <p class="HPC2" id="HPC">{{ result.score }}</p>
+            <p class="HPC2" id="HPC">{{ results.get.click_power }}</p>
             <p class="tentacle-shop">Tentacle Shop</p>
                 <div class="tentacle">
-                    {% for tentacle in tentacles_list %}
+                    {% for tentacle in tentacles.values %}
                     <button class="tentacle-design" id="tentacle" onclick="update_power(1)">
                         <p class="tentacle-name"> {{ tentacle.name }}</p>
                         <p class="tentacle-price">Price: <span id="tentacle_cost">{{ tentacle.cost }}</span></p>
-                        <img src='{{ tentacle.image.url }}' class="tentIMG" alt="">
+                        <img src='{% get_media_prefix %}{{ tentacle.image }}' class="tentIMG" alt="">
                         <p class="tentacle-count">x<span id="tentacle1_count">0</span></p>
                     </button>
                     {% endfor %}
