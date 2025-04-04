@@ -10,16 +10,12 @@
 <body>
 <div class="rectangle">
     <p class="login">Авторизация</p>
-    <form class="forms" action="{% url 'login' %}" method='POST'>
+    <form class="forms" action="{% url 'users:login' %}" method='POST'>
         {% csrf_token %}
-        {{ form.username }}
-        {{ form.password }}
-        {% if invalid %}
-            <p>Введи нормальные данные</p>
-        {% endif %}
+        {{ form.as_p }}
         <input type="submit" class="button">
     </form>
-    <p class="nonregistered"><a href="{% url 'register' %}">Не зарегистрирован?</a></p>
+    <p class="nonregistered"><a href="{% url 'users:register' %}">Не зарегистрирован?</a></p>
 </div>
 </body>
 </html>

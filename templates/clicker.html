@@ -9,47 +9,25 @@
 </head>
 <body onload="onload_image()">
     <div style="width: 100%;overflow:auto;">
-        <div class="actual-gameplay" id="actual-gameplay" onclick="call_click()">
-            <p class="score">Hits: <span id="score">{{ score }}</span></p>
-            <img class="girl" id="girl" src=""/>
+        <div class="actual-gameplay" id="actual-gameplay" onclick="location.href='{% url 'clicker:call_click' %}'">
+            <p class="score">Hits: <span id="score"> {{ results.get.score }}</span></p>
+            <img class="girl" id="girl"/>
             <p class="stage" id="stage"></p>
         </div>
         <div class="bar">
             <p class="HPC1">Hits Per Click:</p>
             <br>
-            <p class="HPC2" id="HPC">{{ userHPC }}</p>
+            <p class="HPC2" id="HPC">{{ results.get.click_power }}</p>
             <p class="tentacle-shop">Tentacle Shop</p>
                 <div class="tentacle">
-                    <button class="tentacle1" id="tentacle1" onclick="update_power(1)">
-                        <p class="tentacle-name">Magic Tentacle</p>
-                        <p class="tentacle-price">Price: <span id="tentacle1_cost">{{ tentacle1_cost }}</span></p>
-                        <img src="/static/clicker/tentacles/tentacle1.png" class="tentIMG">
-                        <p class="tentacle-count">x<span id="tentacle1_count">{{ tentacle1_count }}</span></p>
+                    {% for tentacle in tentacles.values %}
+                    <button class="tentacle-design" id="tentacle" onclick="update_power(1)">
+                        <p class="tentacle-name"> {{ tentacle.name }}</p>
+                        <p class="tentacle-price">Price: <span id="tentacle_cost">{{ tentacle.cost }}</span></p>
+                        <img src='{% get_media_prefix %}{{ tentacle.image }}' class="tentIMG" alt="">
+                        <p class="tentacle-count">x<span id="tentacle1_count">0</span></p>
                     </button>
-                    <button class="tentacle1" id="tentacle2" onclick="update_power(2)">
-                        <p class="tentacle-name">Sea Tentacle</p>
-                        <p class="tentacle-price">Price: <span id="tentacle2_cost">{{ tentacle2_cost }}</span></p>
-                        <img src="/static/clicker/tentacles/tentacle2.png" class="tentIMG">
-                        <p class="tentacle-count">x<span id="tentacle2_count">{{ tentacle2_count }}</span></p>
-                    </button>
-                    <button class="tentacle1" id="tentacle3" onclick="update_power(3)">
-                        <p class="tentacle-name">Hell Tentacle</p>
-                        <p class="tentacle-price">Price: <span id="tentacle3_cost">{{ tentacle3_cost }}</span></p>
-                        <img src="/static/clicker/tentacles/tentacle3.png" class="tentIMG">
-                        <p class="tentacle-count">x<span id="tentacle3_count">{{ tentacle3_count }}</span></p>
-                    </button>
-                    <button class="tentacle1" id="tentacle4" onclick="update_power(4)">
-                        <p class="tentacle-name">Heaven Tentacle</p>
-                        <p class="tentacle-price">Price: <span id="tentacle4_cost">{{ tentacle4_cost }}</span></p>
-                        <img src="/static/clicker/tentacles/tentacle4.png" class="tentIMG">
-                        <p class="tentacle-count">x<span id="tentacle4_count">{{ tentacle4_count }}</span></p>
-                    </button>
-                    <button class="tentacle1" id="tentacle5" onclick="update_power(5)">
-                        <p class="tentacle-name">Demonic Tentacle</p>
-                        <p class="tentacle-price">Price: <span id="tentacle5_cost">{{ tentacle5_cost }}</span></p>
-                        <img src="/static/clicker/tentacles/tentacle5.png" class="tentIMG">
-                        <p class="tentacle-count">x<span id="tentacle5_count">{{ tentacle5_count }}</span></p>
-                    </button>
+                    {% endfor %}
                 </div>
         </div>
     </div>

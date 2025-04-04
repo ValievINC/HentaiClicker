@@ -13,12 +13,12 @@
         {% if form.errors %}
             <p>{{ form.errors }}</p>
         {% endif %}
-        <form class="forms" action="{% url 'register' %}" method='POST'>
+        <form class="forms" action="{% url 'users:register' %}" method='POST'>
             {% csrf_token %}
             {{ form.as_p }}
             <input class="button" type="submit">
         </form>
-        <p class="registered"><a href="{% url 'login' %}">Зарегистрирован?</a></p>
+        <p class="registered"><a href="{% url 'users:login' %}">Зарегистрирован?</a></p>
 </div>
 <div class="blur"></div>
 </body>
